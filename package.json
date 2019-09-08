@@ -2,9 +2,13 @@
   "name": "archives-api",
   "version": "1.0.0",
   "description": "An App for managing archives of whatever you feel like",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc && node ./dist/app.js",
+    "dev": "nodemon",
+    "test": "mocha --reporter spec --require ts-node/register 'src/test/**/*.test.ts'",
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts}'",
+    "lintfix": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,40 @@
   "bugs": {
     "url": "https://github.com/karthikjag/archives-api/issues"
   },
-  "homepage": "https://github.com/karthikjag/archives-api#readme"
+  "homepage": "https://github.com/karthikjag/archives-api#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.1",
+    "@types/chai-http": "^4.2.0",
+    "@types/config": "0.0.34",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.1",
+    "@types/helmet": "0.0.44",
+    "@types/mocha": "^5.2.7",
+    "@types/morgan": "^1.7.37",
+    "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/parser": "^2.1.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.2",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "@types/swagger-ui-express": "^3.0.1",
+    "@types/yamljs": "^0.2.30",
+    "config": "^3.2.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.0",
+    "morgan": "^1.9.1",
+    "swagger-ui-express": "^4.0.7",
+    "winston": "^3.2.1",
+    "yamljs": "^0.3.0"
+  }
 }

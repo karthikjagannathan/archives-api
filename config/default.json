@@ -1,0 +1,42 @@
+{
+  "host": "localhost",
+  "port": "4000",
+  "logging": {
+    "morgan": {
+      "logType": "dev"
+    },
+    "winston": {
+      "file": {
+        "level": "info",
+        "name": "file.info",
+        "filename": "./logs/app.log",
+        "datePattern": "YYYYMMDDHH",
+        "zippedArchive": true,
+        "handleExceptions": true,
+        "json": true,
+        "maxSize": "20m",
+        "maxFiles": "14d",
+        "colorize": false
+      },
+      "errorFile": {
+        "level": "error",
+        "name": "file.error",
+        "filename": "./logs/err.log",
+        "datePattern": "YYYYMMDDHH",
+        "zippedArchive": true,
+        "handleExceptions": true,
+        "json": true,
+        "maxSize": "20m",
+        "maxFiles": "14d",
+        "colorize": false
+      },
+      "console": {
+        "level": "debug",
+        "handleExceptions": true,
+        "json": false,
+        "colorize": true
+      }
+    }
+  },
+  "authenticate": true
+}
