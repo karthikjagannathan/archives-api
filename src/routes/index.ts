@@ -5,6 +5,7 @@
 
 import express from 'express';
 import health from './health.route';
+import catalogs from './catalogs.route';
 
 const router = express.Router();
 
@@ -14,5 +15,6 @@ router.get('/', (req, res) => {
 });
 
 router.use('/health', health);
+router.use('/catalogs', catalogs);
 
 export default router;
