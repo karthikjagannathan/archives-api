@@ -27,6 +27,10 @@ const bookSchema = new Schema({
     type: String,
     required: true,
   },
+  catalogId: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
 });
 
 const Book = mongoose.model('book', bookSchema);

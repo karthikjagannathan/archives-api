@@ -27,6 +27,10 @@ const movieSchema = new Schema({
     type: String,
     required: true,
   },
+  catalogId: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
 });
 
 const Movie = mongoose.model('movie', movieSchema);

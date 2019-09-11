@@ -23,6 +23,10 @@ const gameSchema = new Schema({
     type: String,
     required: true,
   },
+  catalogId: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
 });
 
 const Game = mongoose.model('game', gameSchema);
