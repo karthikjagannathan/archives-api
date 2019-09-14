@@ -31,12 +31,30 @@ const getCatalogDetails = asyncHandler(
   },
 );
 
-const getCatalogBooks = asyncHandler(
+const getCatalogItems = asyncHandler(
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    logger.info(`getCatalogBooks for ${req.params.catId}`);
-    const books = await Book.find({ catalogId: req.params.catId });
-    books.length ? res.status(200).send(books) : next(new HttpException(404, 'books not found'));
+    logger.info(`getCatalogItems of type ${req.query.type} for ${req.params.catId}`);
+
+    const itemType = req.query.type;
+
+    let items;
+
+    if (itemType) {
+      // filter
+
+      if (itemType === 'book') {
+        items = await Book.find({ catalogId: req.params.catId });
+      } else {
+        // TODO: add other types
+      }
+    } else {
+      // TODO: get all items
+      const books = await Book.find({ catalogId: req.params.catId });
+      items = { books: [...books] };
+    }
+
+    items ? res.status(200).send(items) : next(new HttpException(404, 'items not found'));
   },
 );
 
-export { getCatalogs, getCatalogDetails, getCatalogBooks };
+export { getCatalogs, getCatalogDetails, getCatalogItems };

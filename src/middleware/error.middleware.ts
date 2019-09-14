@@ -32,7 +32,8 @@ const errorHandler = (error: HttpException, _request: Request, response: Respons
 const asyncHandler = (fn: Function) => (req: Request, res: Response, next: NextFunction): void => {
   Promise.resolve(fn(req, res, next)).catch(e => {
     logger.debug(e);
-    next(new HttpException(400, 'missing or invalid parameters'));
+    // next(new HttpException(400, 'missing or invalid parameters'));
+    next(new HttpException(400, e.message));
   });
 };
 

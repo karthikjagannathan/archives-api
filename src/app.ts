@@ -10,6 +10,7 @@ import morgan from 'morgan'; // log requests to the console (express4)
 import express from 'express';
 import http from 'http';
 import config from 'config';
+import bodyParser from 'body-parser';
 import cors from 'cors'; // CORS
 import helmet from 'helmet'; // Security
 import swaggerUi from 'swagger-ui-express'; //swagger
@@ -48,6 +49,18 @@ const startup = async (): Promise<void> => {
         return res.statusCode >= 400;
       },
       stream: new LoggerStream(),
+    }),
+  );
+
+  app.use(
+    bodyParser.json({
+      limit: '50mb',
+    }),
+  );
+  app.use(
+    bodyParser.urlencoded({
+      limit: '50mb',
+      extended: true,
     }),
   );
 

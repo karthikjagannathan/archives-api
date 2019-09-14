@@ -9,19 +9,19 @@ const bookSchema = new Schema({
   },
   genre: {
     type: String,
-    required: true,
+    required: false,
   },
   year: {
     type: Date,
-    required: true,
+    required: false,
   },
   imageUrl: {
     type: String,
-    required: true,
+    required: false,
   },
   url: {
     type: String,
-    required: true,
+    required: false,
   },
   author: {
     type: String,
@@ -29,7 +29,7 @@ const bookSchema = new Schema({
   },
   catalogId: {
     type: Schema.Types.ObjectId,
-    required: true,
+    required: false,
   },
 });
 
