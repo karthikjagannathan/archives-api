@@ -6,6 +6,9 @@
 import { Request, Response } from 'express';
 import HttpException from '../exceptions/http.exceptions';
 import { NextFunction } from 'connect';
+import * as utils from '../helpers/util.helper';
+
+const logger = utils.getLogger(__filename);
 
 const fofHandler = (_request: Request, response: Response): void => {
   const status = 404;
@@ -26,4 +29,11 @@ const errorHandler = (error: HttpException, _request: Request, response: Respons
   next();
 };
 
-export { fofHandler, errorHandler };
+const asyncHandler = (fn: Function) => (req: Request, res: Response, next: NextFunction): void => {
+  Promise.resolve(fn(req, res, next)).catch(e => {
+    logger.debug(e);
+    next(new HttpException(400, 'missing or invalid parameters'));
+  });
+};
+
+export { fofHandler, errorHandler, asyncHandler };
