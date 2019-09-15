@@ -44,14 +44,17 @@ const getCatalogItems = asyncHandler(
 
     if (itemType) {
       // filter
-
       if (itemType === 'book') {
         items = await Book.find({ catalogId: req.params.catId });
-      } else {
-        // TODO: add other types
+      } else if (itemType === 'game') {
+        items = await Game.find({ catalogId: req.params.catId });
+      } else if (itemType === 'movie') {
+        items = await Movie.find({ catalogId: req.params.catId });
+      } else if (itemType === 'music') {
+        items = await Music.find({ catalogId: req.params.catId });
       }
     } else {
-      // TODO: get all items
+      // return all
       const books = await Book.find({ catalogId: req.params.catId });
       const games = await Game.find({ catalogId: req.params.catId });
       const movies = await Movie.find({ catalogId: req.params.catId });
