@@ -1,5 +1,5 @@
 /**
- * route /books
+ * route  /books
  * GET    /books                          Get list of books
  * POST   /books                          Add new book
  * GET    /books/:bookId                  Get single book

@@ -54,7 +54,6 @@ const deleteBook = asyncHandler(
   },
 );
 
-// TODO - pull out and make generic for all items
 const addBookToCatalog = asyncHandler(
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     logger.info(`addBookToCatalog - book ${req.params.bookId} to catalog ${req.params.catId}`);

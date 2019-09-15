@@ -11,6 +11,9 @@ import { asyncHandler } from '../middleware/error.middleware';
 import * as utils from '../helpers/util.helper';
 import { Catalog } from '../db/models/catalog.model';
 import { Book } from '../db/models/book.model';
+import { Game } from '../db/models/game.model';
+import { Movie } from '../db/models/movie.model';
+import { Music } from '../db/models/music.model';
 
 const logger = utils.getLogger(__filename);
 
@@ -50,7 +53,10 @@ const getCatalogItems = asyncHandler(
     } else {
       // TODO: get all items
       const books = await Book.find({ catalogId: req.params.catId });
-      items = { books: [...books] };
+      const games = await Game.find({ catalogId: req.params.catId });
+      const movies = await Movie.find({ catalogId: req.params.catId });
+      const music = await Music.find({ catalogId: req.params.catId });
+      items = { books: [...books], games: [...games], movies: [...movies], music: [...music] };
     }
 
     items ? res.status(200).send(items) : next(new HttpException(404, 'items not found'));

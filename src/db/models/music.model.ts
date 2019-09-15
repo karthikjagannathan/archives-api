@@ -2,32 +2,36 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-const gameSchema = new Schema({
+const musicSchema = new Schema({
   title: {
     type: String,
     required: true,
   },
   genre: {
     type: String,
-    required: false,
+    required: true,
   },
   year: {
     type: Date,
-    required: false,
+    required: true,
   },
   imageUrl: {
     type: String,
-    required: false,
+    required: true,
   },
   url: {
     type: String,
-    required: false,
+    required: true,
+  },
+  artist: {
+    type: String,
+    required: true,
   },
   catalogId: {
     type: Schema.Types.ObjectId,
-    required: false,
+    required: true,
   },
 });
 
-const Game = mongoose.model('game', gameSchema);
-export { Game };
+const Music = mongoose.model('music', musicSchema);
+export { Music };
