@@ -8,7 +8,8 @@
     "dev": "nodemon",
     "test": "mocha --reporter spec --require ts-node/register 'src/test/**/*.test.ts'",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts}'",
-    "lintfix": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix"
+    "lintfix": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
