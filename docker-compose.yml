@@ -4,14 +4,8 @@ services:
   api:
     container_name: archivesapi
     restart: always
-    build:
-      context: .
-      dockerfile: Dockerfile
     environment:
-      PORT: 4000
       MONGODB_CONNECTION: ${DB}
-    ports:
-      - "4000:4000"
     links:
       - mongo
   mongo:

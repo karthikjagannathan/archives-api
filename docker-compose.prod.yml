@@ -1,0 +1,13 @@
+# docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+version: "3"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      PORT: 8080
+    ports:
+      - "8080:8080"
