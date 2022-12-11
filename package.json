@@ -48,7 +48,7 @@
     "@types/yamljs": "^0.2.30",
     "config": "^3.2.2",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "helmet": "^3.21.0",
     "morgan": "^1.9.1",
     "swagger-ui-express": "^4.0.7",
