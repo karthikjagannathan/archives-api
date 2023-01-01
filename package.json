@@ -46,7 +46,7 @@
   "dependencies": {
     "@types/swagger-ui-express": "^3.0.1",
     "@types/yamljs": "^0.2.30",
-    "config": "^3.2.2",
+    "config": "^3.3.8",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^3.21.0",
